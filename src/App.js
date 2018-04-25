@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
+import firebase from './config'
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { 
-      users: [
-        {
-          firstname: "Elon", 
-          lastname: "Musk", 
-          age: 23
-        }, 
-        {
-          firstname: "Donald", 
-          lastname: "Trump", 
-          age: 94
-        }
-      ]
+    this.state = {
+      users: []
     }
+  }
+
+  componentWillMount(){
+    this.getUsers()
+  }
+
+  getUsers() {
+    let users = []
+    firebase.database().ref(`users/`).once('value', snapshot => {
+      snapshot.forEach(snap => {
+        users.push(snap.val())
+      })
+      this.setState({
+        users
+      })
+    })
   }
 
   render() {
