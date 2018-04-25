@@ -1,6 +1,7 @@
-// export-demo/src/App.js
 import React, { Component } from 'react';
+import logo from './logo.svg';
 import './App.css';
+
 class App extends Component {
   render() {
     return (
@@ -11,17 +12,17 @@ class App extends Component {
           <table>
             <tr>
               <th>Firstname</th>
-              <th>Lastname</th>
+              <th>Lastname</th> 
               <th>Age</th>
             </tr>
             <tr>
               <td>Elon</td>
-              <td>Musk</td>
+              <td>Musk</td> 
               <td>23</td>
             </tr>
             <tr>
               <td>Donald</td>
-              <td>Trump</td>
+              <td>Trump</td> 
               <td>94</td>
             </tr>
           </table>
@@ -30,8 +31,10 @@ class App extends Component {
     );
   }
 }
-var style = {
+
+const style = {
   display: 'flex',
   justifyContent: 'center',
 }
+
 export default App;
